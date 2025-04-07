@@ -16,11 +16,11 @@ app.get("/user",(req,res) => {
     if(!user){
         return res.status(404).send({msg:"User parameter cannot be empty"});
     }
-
-    if(user){
+    try {
         return res.status(200).send({msg:"User found" , user:{userData}});
+    }catch {
+        return res.status(500).send({msg:"User not found"});
     }
-    return res.status(500).send({msg:"User not found"});
 })
 
 
