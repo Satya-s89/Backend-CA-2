@@ -17,7 +17,7 @@ app.get("/user/:id",(req,res) => {
         return res.status(404).send({msg:"User parameter cannot be empty"});
     }
     userData.map((ele) => {
-        if(ele == id){
+        if(ele.id == id){
             return res.status(200).send({msg:"User found" , user:{userData}});
         }
         else{
